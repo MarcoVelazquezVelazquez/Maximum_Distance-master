@@ -4,8 +4,30 @@ public class IntArrayUtil {
 
 	public static int maximumDistance(int[] array) {
 		// TODO: Implement this method.
-		return 0;
+
+		if (array == null || array.length == 0){
+			return 0;
+		}
+
+		int maxValue = Integer.MIN_VALUE;
+		int firstIndex = -1;
+		int lastIndex = -1;
+
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] > maxValue) {
+				maxValue = array[i];
+				firstIndex = i;
+				lastIndex = i;
+			} else if (array[i] == maxValue) {
+				lastIndex = i;
+			}
+		}
+
+		return lastIndex - firstIndex;
 	}
+
+/*		return 0;
+	}*/
 
 	public static void main(String[] args) {
 		{
